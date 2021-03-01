@@ -11,7 +11,7 @@ func main() {
 	pulumi.Run(createResources)
 }
 
-var appNames = []string{"appA", "appB"}
+var appNames = []string{"appA", "appB", "appC"}
 
 func createResources(ctx *pulumi.Context) error {
 	for _, appName := range appNames {
@@ -24,7 +24,7 @@ func createResources(ctx *pulumi.Context) error {
 			_, err := random.NewRandomPassword(
 				ctx,
 				resName,
-				&random.RandomPasswordArgs{Length: pulumi.Int(10)},
+				&random.RandomPasswordArgs{Length: pulumi.Int(10 + i)},
 				pulumi.Parent(component),
 			)
 			if err != nil {
