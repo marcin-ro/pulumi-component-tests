@@ -1,0 +1,3 @@
+name: pulumi-components-test
+runtime: go
+description: Minimal test for pulumi components.
